@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        .bt{
+            color: black;
+            border-radius: 12px;
+
+        }
+        :hover.bt{
+            color: burlywood;
+        }
+
+        .btn1{
+            background-color: lightgreen;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 15px 5px 15px;
+        }
+        .btn2{
+            border-radius: 10px;
+            border: 2px solid black;
+            padding:5px 25px 5px 25px;
+            text-transform: uppercase;
+        }
+    </Style>
+</head>
+<body>
+    <button class="btn1" onclick="cartQuantity++;
+    document.querySelector('#cart-summary').innerText = 'Your bag has '+  cartQuantity  + ' items'">Add to bag</button>
+    <button class="btn2" onclick="cartQuantity--;
+    document.querySelector('#cart-summary').innerText = 'Your bag has '+  cartQuantity  + ' items'">Move to Wiahlist</button>
+    <button class="btn1"onclick="cartQuantity = cartQuantity + 2;
+    document.querySelector('#cart-summary').innerText = 'Your bag has '+  cartQuantity  + ' items'">Add 1+1 Sale item</button>
+
+    <h1 id="cart-summary"></h1>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
