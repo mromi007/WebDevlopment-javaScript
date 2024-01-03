@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Even</title>
+</head>
+<body>
+    <h1>Odd Even</h1>
+    <input id="opp" readonly>
+    <input id="bbb" readonly>
+    <input id="ccc" readonly>
+    <input id="ddd" readonly>
+
+    <script>
+        function isOdd(number){
+            
+            let rem = number % 2;
+            let isOdd;
+            if(isOdd = rem == 1){
+                return 'it is odd';
+            }
+            else{
+                return 'it is even';
+            }
+        }
+        document.querySelector('#opp').value = isOdd(10);
+
+
+
+
+
+        function larger(num1, num2){
+            if(num1 > num2){
+                return 'num1 is larger';
+            }
+            else{
+                return 'num2 is larger';
+            }
+
+        }
+        document.querySelector('#bbb').value = larger(10, 15);
+
+
+
+
+
+        function otherMethodLarger(num1, num2){
+            return num1 > num2 ? 'num1 is larger' : 'num2 is larger';
+        }
+        document.querySelector('#ccc').value = otherMethodLarger(110, 15);
+
+
+
+
+        function toFahrenheit(celsiusValue){
+            return 9/5*celsiusValue + 32;
+        }
+        document.querySelector('#ddd').value = toFahrenheit(38);
+
+
+
+
+    </script>    
+</body>
+</html>

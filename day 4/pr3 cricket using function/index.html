@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+
+</head>
+<body>
+   <h1>Bat Ball Stump Game</h1>
+   
+
+          <button onclick="
+                   let computerChoice = generateComputerChoice();
+                   let resultMsg = getResult('Bat', computerChoice);
+                   alert(`You have chosen Bat. Computer chosen ${computerChoice}. and ${resultMsg}`)"
+                   >Bat
+          </button>
+
+
+   
+   
+   
+   
+          <button onclick="
+                   computerChoice = generateComputerChoice();
+                   resultMsg = getResult('Ball', computerChoice);
+                   alert(`You have chosen Ball. Computer chosen ${computerChoice}. and ${resultMsg}`)
+                   "                 
+                   >Ball
+          </button>
+
+
+
+
+          <button onclick="
+                   computerChoice = generateComputerChoice();
+                   resultMsg = getResult('Stump', computerChoice);
+                   alert(`You have chosen Wicket. Computer chosen ${computerChoice}. and ${resultMsg}`)
+                   "
+                   >Wicket
+         </button>
+
+
+   <script>
+
+
+    function generateComputerChoice(){
+        let randomNumber = Math.random()*3;
+   
+
+        if(randomNumber > 0 && randomNumber <= 1){
+         return 'Bat';
+        }
+        else if(randomNumber > 1 && randomNumber <= 2){
+         return 'Ball';
+        }
+        else{
+         return 'Stump';
+        };
+       }
+
+   function getResult(userMove, comuterMove){
+
+       if(userMove === 'Bat') {
+          if(comuterMove === 'Ball') {
+            return 'user won';
+          }
+          else if(comuterMove === 'Bat') {
+            return 'its tie';
+          }
+          else if(comuterMove === 'Stump') {
+            return 'computer won';
+          }
+       }
+
+       else if(userMove === 'Ball') {
+         if(comuterMove === 'Ball') {
+            return 'its tie';
+          }
+          else if(comuterMove === 'Bat') {
+            return 'computer won';
+          }
+          else if(comuterMove === 'Stump') {
+            return 'user won';
+          }
+       }
+
+       else if (userMove === 'Stump') {
+         if(comuterMove === 'Ball') {
+            return 'user won';
+          }
+          else if(comuterMove === 'Bat') {
+            return 'computer won';
+          }
+          else if(comuterMove === 'Stump') {
+            return 'its tie';
+          }
+       }
+
+  function showResult(userMove, computerMove, result){
+         
+      }
+    }
+   </script>
+</body>
+</html>
