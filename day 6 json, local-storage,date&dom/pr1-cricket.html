@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <Style>
+      body{
+        text-align: center;
+        background-image: url(pxfuel.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color: aliceblue;
+        
+      }
+
+      .bat-btn{
+        width: px;
+        height: 75px;
+        
+      }
+      .ball-btn{
+        width: px;
+        height: 75px;
+        
+      }
+      .stump-btn{
+        width: px;
+        height: 75px;
+        
+      }
+      .btn{
+        background-color: lightgreen;
+        border-radius: 100px;
+        height: 150px;
+        width: 150px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </Style>
+
+</head>
+<body>
+   <h1>Bat Ball Stump Game</h1>
+   
+
+          <button class="btn" onclick="
+                   let computerChoice = generateComputerChoice();
+                   let resultMsg = getResult('Bat', computerChoice);
+                   document.querySelector('#aaa').innerText = `You have chosen Bat. Computer chosen ${computerChoice}. and ${resultMsg}`;"
+                   >
+                   <img src="crick img/bat.png" alt="bat" class="bat-btn">
+          </button>
+
+
+   
+   
+   
+   
+          <button class="btn" onclick="
+                   computerChoice = generateComputerChoice();
+                   resultMsg = getResult('Ball', computerChoice);
+                   document.querySelector('#aaa').innerText = `You have chosen Ball. Computer chosen ${computerChoice}. and ${resultMsg}`;
+                   "                 
+                   >
+                   <img src="crick img/ball.png" alt="ball" class="ball-btn">
+          </button>
+
+
+
+
+          <button class="btn" onclick="
+                   computerChoice = generateComputerChoice();
+                   resultMsg = getResult('Stump', computerChoice);
+                   localStorage
+                   document.querySelector('#aaa').innerText = `You have chosen Wicket. Computer chosen ${computerChoice}. and ${resultMsg}`;
+                   
+                   "
+                   >
+                   <img src="crick img/stump.png" alt="stump" class="stump-btn">
+         </button>
+
+
+         <h2 id="aaa"></h2>
+         <h2>score card</h2>
+         <h3 id="bbb"></h3>
+         <h3 id="ccc"></h3>
+         <h3 id="ddd"></h3>
+
+
+         <button onclick=" 
+         localStorage.clear();
+            score = {  
+               win:0,
+               lost:0,
+               tie:0,
+               };
+               
+               ">
+          New Game
+         </button>
+
+
+   <script>
+    let scoreStr = localStorage.getItem('score');
+    let score;
+    if (scoreStr !== undefined){
+      score = JSON.parse(scoreStr);
+    }
+    else{
+      score = {  
+          win:0,
+          lost:0,
+          tie:0,
+      };
+    }
+    
+
+
+    function generateComputerChoice(){
+        let randomNumber = Math.random()*3;
+   
+
+        if(randomNumber > 0 && randomNumber <= 1){
+         return 'Bat';
+        }
+        else if(randomNumber > 1 && randomNumber <= 2){
+         return 'Ball';
+        }
+        else{
+         return 'Stump';
+        };
+       }
+
+   function getResult(userMove, comuterMove){
+
+       if(userMove === 'Bat') {
+          if(comuterMove === 'Ball') {
+            score.win++;
+            document.querySelector('#bbb').innerText = `Win = ${score.win}`;
+            localStorage.setItem('score',JSON.stringify(score));
+
+            return 'You won';
+          }
+          else if(comuterMove === 'Bat') {
+            
+            document.querySelector('#ddd').innerText = `Tie = ${score.tie}`;
+            score.tie++;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'Its tie';
+          }
+          else if(comuterMove === 'Stump') {
+            score.lost++;
+            document.querySelector('#ccc').innerText = `Lost = ${score.lost}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'Computer won';
+          }
+       }
+
+       else if(userMove === 'Ball') {
+         if(comuterMove === 'Ball') {
+            score.tie++;
+            document.querySelector('#ddd').innerText = `Tie = ${score.tie}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'Its tie';
+          }
+          else if(comuterMove === 'Bat') {
+            score.lost++;
+            document.querySelector('#ccc').innerText = `Lost = ${score.lost}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'Computer won';
+          }
+          else if(comuterMove === 'Stump') {
+            score.win++;
+            document.querySelector('#bbb').innerText = `Win = ${score.win}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'You won';
+          }
+       }
+
+       else if (userMove === 'Stump') {
+         if(comuterMove === 'Ball') {
+            score.win++;
+            document.querySelector('#bbb').innerText = `Win = ${score.win}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'You won';
+          }
+          else if(comuterMove === 'Bat') {
+            score.lost++;
+            document.querySelector('#ccc').innerText = `Lost = ${score.lost}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'Computer won';
+          }
+          else if(comuterMove === 'Stump') {
+            score.tie++;
+            document.querySelector('#ddd').innerText = `Tie = ${score.tie}`;
+            localStorage.setItem('score',JSON.stringify(score));
+            return 'Its tie';
+          }
+          
+       }
+
+    
+    
+       
+    }
+   </script>
+</body>
+</html>

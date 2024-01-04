@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+
+</head>
+<body>
+   <h1>Bat Ball Stump Game</h1>
+   
+
+          <button onclick="
+                   let computerChoice = generateComputerChoice();
+                   let resultMsg = getResult('Bat', computerChoice);
+                   document.querySelector('#aaa').value = `You have chosen Bat. Computer chosen ${computerChoice}. and ${resultMsg}`;"
+                   >Bat
+          </button>
+
+
+   
+   
+   
+   
+          <button onclick="
+                   computerChoice = generateComputerChoice();
+                   resultMsg = getResult('Ball', computerChoice);
+                   document.querySelector('#aaa').value = `You have chosen Ball. Computer chosen ${computerChoice}. and ${resultMsg}`;
+                   "                 
+                   >Ball
+          </button>
+
+
+
+
+          <button onclick="
+                   computerChoice = generateComputerChoice();
+                   resultMsg = getResult('Stump', computerChoice);
+                   document.querySelector('#aaa').value = `You have chosen Wicket. Computer chosen ${computerChoice}. and ${resultMsg}`;
+                   
+                   "
+                   >Wicket
+         </button>
+
+         <input id="aaa" style="width: 100%;">
+         <h2>score card</h2>
+         <h3>win = </h3><input id="bbb">
+         <h3>lost = </h3><input id="ccc">
+         <h3>tie = </h3><input id="ddd">
+
+
+   <script>
+    let score = {
+        win:0,
+        lost:0,
+        tie:0,
+    }
+    
+
+
+    function generateComputerChoice(){
+        let randomNumber = Math.random()*3;
+   
+
+        if(randomNumber > 0 && randomNumber <= 1){
+         return 'Bat';
+        }
+        else if(randomNumber > 1 && randomNumber <= 2){
+         return 'Ball';
+        }
+        else{
+         return 'Stump';
+        };
+       }
+
+   function getResult(userMove, comuterMove){
+
+       if(userMove === 'Bat') {
+          if(comuterMove === 'Ball') {
+            score.win++;
+            document.querySelector('#bbb').value = score.win;
+            return 'user won';
+          }
+          else if(comuterMove === 'Bat') {
+            return 'its tie';
+            document.querySelector('#ddd').value = score.tie;
+            score.tie++;
+          }
+          else if(comuterMove === 'Stump') {
+            score.lost++;
+            document.querySelector('#ccc').value = score.lost;
+            return 'computer won';
+          }
+       }
+
+       else if(userMove === 'Ball') {
+         if(comuterMove === 'Ball') {
+            score.tie++;
+            document.querySelector('#ddd').value = score.tie;
+            return 'its tie';
+          }
+          else if(comuterMove === 'Bat') {
+            score.lost++;
+            document.querySelector('#ccc').value = score.lost;
+            return 'computer won';
+          }
+          else if(comuterMove === 'Stump') {
+            score.win++;
+            document.querySelector('#bbb').value = score.win;
+            return 'user won';
+          }
+       }
+
+       else if (userMove === 'Stump') {
+         if(comuterMove === 'Ball') {
+            score.win++;
+            document.querySelector('#bbb').value = score.win;
+            return 'user won';
+          }
+          else if(comuterMove === 'Bat') {
+            score.lost++;
+            document.querySelector('#ccc').value = score.lost;
+            return 'computer won';
+          }
+          else if(comuterMove === 'Stump') {
+            score.tie++;
+            document.querySelector('#ddd').value = score.tie;
+            return 'its tie';
+          }
+          
+       }
+
+    
+    
+       
+    }
+   </script>
+</body>
+</html>

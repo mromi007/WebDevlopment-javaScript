@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Object</title>
 </head>
 <body>
-    
+    <h1>Object</h1>
+    <h2>Company</h2><input id="aaa">
+    <h2>Price</h2><input id="bbb">
+    <h2>item_name</h2><input id="ccc">
+
+    <script>
+        let product = {
+            company: 'Mango',
+            Price: 800,
+            item_name: 'T-Shirt',
+        }
+
+        document.querySelector('#aaa').value = product.company;
+        document.querySelector('#bbb').value = product.Price;
+        document.querySelector('#ccc').value = product.item_name;
+
+        product.company = 'banana';
+        document.querySelector('#aaa').value = product.company;
+
+        delete product.company;
+        document.querySelector('#aaa').value = product.company;
+    </script>
 </body>
 </html>
