@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Practise Exercise</title>
+</head>
+<body>
+  <script>
+    let arr = [5,6];
+    arr.push(7);
+    arr.unshift(4);
+    console.log(arr);
+
+
+    //
+
+    function getElement(brr, position) {
+      return brr[position - 1];
+     }
+     let brr = [1,2,3,4,15,6,7,8,9];
+     console.log(getElement(brr, 5));
+
+
+
+    //
+
+
+
+
+     function brrCopy(brr) {
+       return brr.slice(0, brr.length);
+    }
+
+     let arr1 = [4,5,6,7];
+     let arr2 = brrCopy(arr);
+     arr2[0] = null;
+     console.log(arr1);
+     console.log(arr2);
+
+
+
+
+    //
+     function isPrime(num) {
+       for (let i = 2; i < num; i++) {
+         if (num % i === 0) {
+           return false;
+         }
+       }
+       return true;
+     }
+
+     let num = 2;
+     let i = 0;
+     while (true) {
+       if (isPrime(num)) {
+         console.log(num);
+         i++;
+         if (i >= 5) {
+           break;
+         }
+       }
+       num++;
+     }
+
+
+
+
+
+
+
+     //
+    for (let i = 10; i > 0; i--) {
+       console.log(i);
+     }
+
+    for (let i = 0; i < 10; i++) {
+       console.log(10 - i);
+     }
+
+
+
+
+     //
+
+     let nums = [1,-6,5,7,-98];
+     for (let i = 0; i < nums.length; i++) {
+       if (nums[i] < 0) continue;
+       console.log(nums[i]);
+     }
+
+
+
+
+
+    //
+     let arr5 = ['KG', 'Coding', 'JavaScript', 'Course', 'is', 'Best'];
+     let result = '';
+     for (let i = 0; i < arr5.length; i++) {
+       result += arr5[i] + ' ';
+     }
+     console.log(result);
+
+     console.log(arr5.join(","));
+
+  </script>
+</body>
+</html>
